@@ -30,7 +30,6 @@ public class RegisterPage {
 
 	public RegisterPage(Stage stage) {
 		this.stage = stage;
-//		this.acc = acc;
 		this.stage.setTitle("Register");
 		initialize();
 		setLayout();

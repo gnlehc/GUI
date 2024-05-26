@@ -11,15 +11,13 @@ import javafx.stage.Stage;
 import model.Book;
 
 public class InsertPage {
-//	private Library lib;
-//	private Account acc;
-	Stage stage;
-	Scene scene;
-	BorderPane borderPane;
-	GridPane gridPane;
-	Label titleLabel, authorLabel, isbnLabel, priceLabel;
-	TextField title, author, isbn, price;
-	Button insertBTN;
+	protected Stage stage;
+	protected Scene scene;
+	protected BorderPane borderPane;
+	protected GridPane gridPane;
+	protected Label titleLabel, authorLabel, isbnLabel, priceLabel;
+	protected TextField title, author, isbn, price;
+	protected Button insertBTN;
 
 	public InsertPage(Stage stage) {
 		this.stage = stage;

@@ -13,13 +13,13 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class DeletePage {
-	private Stage stage;
-	private Scene scene;
-	private BorderPane borderPane;
-	private GridPane gridPane;
-	private Label titleLabel;
-	private Button deleteBTN;
-	private ComboBox<String> titleComboBox;
+	protected Stage stage;
+	protected Scene scene;
+	protected BorderPane borderPane;
+	protected GridPane gridPane;
+	protected Label titleLabel;
+	protected Button deleteBTN;
+	protected ComboBox<String> titleComboBox;
 
 	public DeletePage(Stage stage) {
 		this.stage = stage;

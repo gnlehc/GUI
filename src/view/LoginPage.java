@@ -15,19 +15,18 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class LoginPage {
-	private Stage stage;
-	private Scene scene;
-	private BorderPane borderPane;
-	private GridPane gridPane;
-	private Label emailLabel, passwordLabel;
-	private TextField emailTF;
-	private PasswordField passwordField;
-	private Button loginButton;
-	private Label registerLabel;
-	private Button registerButton;
+	protected Stage stage;
+	protected Scene scene;
+	protected BorderPane borderPane;
+	protected GridPane gridPane;
+	protected Label emailLabel, passwordLabel;
+	protected TextField emailTF;
+	protected PasswordField passwordField;
+	protected Button loginButton;
+	protected Label registerLabel;
+	protected Button registerButton;
 
 	public LoginPage(Stage stage) {
-//        this.acc = acc;
 		this.stage = stage;
 		this.stage.setTitle("Login");
 		initialize();
