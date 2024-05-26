@@ -13,12 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import model.Account;
 import model.User;
 import request.RegisterRequest;
 
 public class RegisterPage {
-	private Account acc;
 	protected Stage stage;
 	protected Scene scene;
 	protected BorderPane borderPane;
@@ -29,8 +27,7 @@ public class RegisterPage {
 	protected Button registerButton;
 	protected Label loginLabel;
 	protected Button loginButton;
-	
-	
+
 	public RegisterPage(Stage stage) {
 		this.stage = stage;
 //		this.acc = acc;
@@ -49,23 +46,23 @@ public class RegisterPage {
 		emailLabel = new Label("Email");
 		usernameLabel = new Label("Username");
 		passwordLabel = new Label("Password");
-		
+
 		emailTF = new TextField();
 		usernameTF = new TextField();
 		passwordfield = new PasswordField();
-		
+
 		registerButton = new Button("Register");
-		
+
 		EventHandler<MouseEvent> registerEvent = event -> {
 			RegisterRequest req = new RegisterRequest();
 			req.setUsername(usernameTF.getText());
 			req.setEmail(emailTF.getText());
 			req.setPassword(passwordfield.getText());
-			
-			if(req.getEmail() != null && req.getPassword() != null && req.getUsername() != null) {
+
+			if (req.getEmail() != null && req.getPassword() != null && req.getUsername() != null) {
 				User user = new User(req.getUsername(), req.getEmail(), req.getPassword());
 				Boolean success = UserController.insertUser(user);
-				if(success) {
+				if (success) {
 //					acc.registerAccount(user);
 					Alert alert = new Alert(Alert.AlertType.INFORMATION);
 					alert.setTitle("Success Message");
@@ -74,27 +71,27 @@ public class RegisterPage {
 					alert.showAndWait();
 					LoginPage loginPage = new LoginPage(stage);
 					stage.setScene(loginPage.getScene());
-				}else {
+				} else {
 					Alert alert = new Alert(Alert.AlertType.ERROR);
 					alert.setTitle("Registration Failed!");
 					alert.setHeaderText(null);
 					alert.setContentText("User already exists");
 					alert.showAndWait();
 				}
-			}else {
+			} else {
 				Alert alert = new Alert(Alert.AlertType.ERROR);
 				alert.setTitle("Registration Failed!");
 				alert.setHeaderText(null);
 				alert.setContentText("The fields are required");
 				alert.showAndWait();
 			}
-			
+
 //			User user = new User(req.getEmail(), req.getUsername(), req.getPassword());
 //			acc.registerAccount(user);
 //			System.out.println("Register Success!");
 //			LoginPage loginPage = new LoginPage(stage);
 //			stage.setScene(loginPage.getScene());
-			
+
 		};
 		registerButton.addEventHandler(MouseEvent.MOUSE_CLICKED, registerEvent);
 		loginLabel = new Label("Already have an account yet?");
@@ -109,7 +106,7 @@ public class RegisterPage {
 		};
 		loginButton.addEventFilter(MouseEvent.MOUSE_CLICKED, redirectToLogin);
 	}
-	
+
 	public void setLayout() {
 		// 1. gabungin node / element kita ke gridpane
 		// 2. gridpane digabungin ke borderpane
@@ -124,20 +121,15 @@ public class RegisterPage {
 		gridPane.add(loginButton, 1, 7);
 		borderPane.setCenter(gridPane);
 	}
-	
+
 	public void setAlignment() {
-		loginButton.setStyle(
-                "-fx-background-color: none; " +  
-                "-fx-border-color: none;" + 
-                "-fx-cursor: hand;" +
-                "-fx-text-fill: #007bff;" +
-                "-fx-underline: true;"
-        );
+		loginButton.setStyle("-fx-background-color: none; " + "-fx-border-color: none;" + "-fx-cursor: hand;"
+				+ "-fx-text-fill: #007bff;" + "-fx-underline: true;");
 		BorderPane.setMargin(gridPane, new Insets(10));
 	}
-	
+
 	public Scene getScene() {
 		return this.scene;
 	}
-	
+
 }
